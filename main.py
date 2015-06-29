@@ -1,15 +1,25 @@
-import sdl2
-import sdl2.ext
-import generations
+#!/usr/bin/env python3
 
-def run():
-    automaton = generations.Automaton(x_size = 64, y_size = 64)
-    sdl2.ext.init()
-    window = sdl2.ext.window.Window("Generations", (256,256))
-    window.show()
-    running = True
-    while running:
-        break
+import tkinter as tk
+
+import widget
+
+class App(tk.Frame):
+    def __init__(self, master=None):
+        super().__init__(master)
+        self.grid()
+
+        self.automaton = widget.CellWidget(master=self, width = 64, height = 64)
+        self.automaton.grid(columnspan = 2)
+        self.start = tk.Button(self)
+        self.start["text"] = "Run/Pause"
+        self.start.grid(column = 0, row = 1)
+        self.step = tk.Button(self)
+        self.step["text"] = "Step"
+        self.step.grid(column = 1, row = 1)
+
 
 if __name__ == "__main__":
-    run()
+    app = App()
+    app.master.title("Generations")
+    app.mainloop()
