@@ -9,7 +9,7 @@ class App(tk.Frame):
         super().__init__(master)
         self.grid()
 
-        self.automaton = widget.CellWidget(master=self, width = 64, height = 64)
+        self.automaton = widget.CellWidget(master=self, width = 16, height = 16)
         self.automaton.grid(columnspan = 2)
         self.start = tk.Button(self)
         self.start["text"] = "Run/Pause"
